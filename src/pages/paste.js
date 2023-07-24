@@ -33,7 +33,7 @@ function onPastePage(moreButtons, alternativeTheme) {
     document.querySelector('#raw').href = `/api/v1/pastes/${pasteID}/raw`;
 
     document.querySelector('#copy').addEventListener('click', () => {
-      utils.copyToClipboard(codeString);
+      utils.copyToClipboard(codeString || 'NO CODE FOUND'); // eslint-disable-line no-undef
     });
 
     document.querySelector('#copyCC').addEventListener('click', () => {
