@@ -15,6 +15,7 @@ const postcssOptions = {
   inject: false,
   minimize: true,
 };
+
 const rollupConfig = [
   {
     input: {
@@ -25,11 +26,10 @@ const rollupConfig = [
           minimize: false,
           postcss: postcssOptions,
         }),
-        userscript(
-          path.resolve('src/meta.js'),
-          meta => meta
+        userscript(path.resolve('src/meta.js'), (meta) =>
+          meta
             .replace('process.env.VERSION', pkg.version)
-            .replace('process.env.AUTHOR', pkg.author),
+            .replace('process.env.AUTHOR', pkg.author)
         ),
       ],
     },

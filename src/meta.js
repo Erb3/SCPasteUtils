@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name        My Script
+// @name        SCPasteUtils
 // @namespace   Violentmonkey Scripts
-// @description This is a userscript.
-// @match       *://*/*
+// @description Various utilities on SCPaste
+// @match       https://p.sc3.io/**
 // @grant       GM_addStyle
 // @version     process.env.VERSION
 // @author      process.env.AUTHOR

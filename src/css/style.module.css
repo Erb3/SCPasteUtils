@@ -1,0 +1,40 @@
+.clickable {
+  @apply bg-indigo-600;
+  @apply hover:bg-indigo-500;
+}
+
+.name {
+  @apply text-white;
+}
+
+.smallButton {
+  @apply text-indigo-500;
+}
+
+.button {
+  @apply clickable;
+  @apply flex;
+  @apply w-full;
+  @apply justify-center;
+  @apply rounded-md;
+  @apply px-3;
+  @apply py-1.5;
+  @apply text-sm;
+  @apply font-semibold;
+  @apply leading-6;
+  @apply shadow-sm;
+  @apply text-white;
+  @apply mx-2;
+  @apply whitespace-nowrap;
+
+  @apply focus-visible:outline;
+  @apply focus-visible:outline-2;
+  @apply focus-visible:outline-offset-2;
+  @apply focus-visible:outline-indigo-600;
+}
+
+.btnContainer {
+  @apply flex;
+  @apply my-2;
+  @apply flex-row-reverse;
+}

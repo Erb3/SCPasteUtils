@@ -1,9 +1,9 @@
 {
   "name": "scpasteutils",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Various utilities for SCPaste",
   "author": "Erb3",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "private": true,
   "engines": {
     "node": ">=16"
