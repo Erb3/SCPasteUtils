@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .clickable {
   @apply bg-indigo-600;
   @apply hover:bg-indigo-500;
@@ -36,5 +38,34 @@
 .btnContainer {
   @apply flex;
   @apply my-2;
-  @apply flex-row-reverse;
+}
+
+.branding {
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.branding > p {
+  @apply text-indigo-500;
+  @apply font-bold;
+}
+
+.settings {
+  @apply flex;
+  @apply flex-col;
+}
+
+.panelContainer {
+  position: fixed;
+  z-index: 1000;
+  top: 37.5%;
+  left: 37.5%;
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+  padding: 3%;
+  @apply bg-emerald-700;
+  @apply border-4 border-indigo-500 border-double;
 }
