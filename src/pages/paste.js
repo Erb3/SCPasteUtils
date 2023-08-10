@@ -1,6 +1,6 @@
 import styles from '../css/style.module.css';
 import { addBookmark, isBookmark, removeBookmark } from '../helpers/config';
-import { toast } from '../utils';
+import { toast, copyToClipboard } from '../utils';
 
 function onPastePage(moreButtons, alternativeTheme) {
   if (moreButtons) {
@@ -38,11 +38,11 @@ function onPastePage(moreButtons, alternativeTheme) {
     document.querySelector('#raw').href = `/api/v1/pastes/${pasteID}/raw`;
 
     document.querySelector('#copy').addEventListener('click', () => {
-      utils.copyToClipboard(codeString || 'NO CODE FOUND'); // eslint-disable-line no-undef
+      copyToClipboard(codeString || 'NO CODE FOUND'); // eslint-disable-line no-undef
     });
 
     document.querySelector('#copyCC').addEventListener('click', () => {
-      utils.copyToClipboard(
+      copyToClipboard(
         `wget https://p.sc3.io/api/v1/pastes/${pasteID}/raw ${pasteName}`
       );
     });
