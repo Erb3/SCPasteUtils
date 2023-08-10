@@ -29,6 +29,28 @@ function shouldUseMoreButtons() {
   return getCookie('moreButtons');
 }
 
+function getBookmarks() {
+  return JSON.parse(getCookie('bookmarks') || '[]');
+}
+
+function addBookmark(id, name) {
+  const marks = getBookmarks();
+  marks.push({
+    id,
+    name,
+  });
+  setCookie('bookmarks', JSON.stringify(marks));
+}
+
+function isBookmark(id) {
+  return getBookmarks().some((v) => v.id == id);
+}
+
+function removeBookmark(id) {
+  const marks = getBookmarks().filter((v) => v.id !== id);
+  setCookie('bookmarks', JSON.stringify(marks));
+}
+
 function setUseMoreButtons(to) {
   setCookie('moreButtons', to, 265);
 }
@@ -42,4 +64,8 @@ export {
   shouldUseMoreButtons,
   setUseAlternativeTheme,
   setUseMoreButtons,
+  addBookmark,
+  getBookmarks,
+  isBookmark,
+  removeBookmark,
 };

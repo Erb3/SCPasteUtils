@@ -1,5 +1,6 @@
 import styles from '../css/style.module.css';
-import utils from '../utils';
+import { addBookmark, isBookmark, removeBookmark } from '../helpers/config';
+import { toast } from '../utils';
 
 function onPastePage(moreButtons, alternativeTheme) {
   if (moreButtons) {
@@ -12,6 +13,10 @@ function onPastePage(moreButtons, alternativeTheme) {
     document.querySelector('section').appendChild(
       VM.m(
         <span className={styles.btnContainer}>
+          <button id="bookmarkBtn" className={styles.button}>
+            Bookmark
+          </button>
+
           <a id="raw" className={styles.button}>
             Raw
           </a>
@@ -28,7 +33,7 @@ function onPastePage(moreButtons, alternativeTheme) {
     );
 
     const pasteID = location.href.split('/').at(-1);
-    let pasteName = document.querySelector('h2').innerHTML;
+    let pasteName = document.querySelector('h2').innerHTML.replaceAll(' ', '_');
 
     document.querySelector('#raw').href = `/api/v1/pastes/${pasteID}/raw`;
 
@@ -38,11 +43,18 @@ function onPastePage(moreButtons, alternativeTheme) {
 
     document.querySelector('#copyCC').addEventListener('click', () => {
       utils.copyToClipboard(
-        `wget https://p.sc3.io/api/v1/pastes/${pasteID}/raw ${pasteName.replaceAll(
-          ' ',
-          '_'
-        )}`
+        `wget https://p.sc3.io/api/v1/pastes/${pasteID}/raw ${pasteName}`
       );
+    });
+
+    document.querySelector('#bookmarkBtn').addEventListener('click', () => {
+      if (isBookmark(pasteID)) {
+        removeBookmark(pasteID);
+        toast('Removed bookmark!', true);
+      } else {
+        addBookmark(pasteID, pasteName);
+        toast('Added bookmark!');
+      }
     });
   }
 

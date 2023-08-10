@@ -1,5 +1,6 @@
 import styles, { stylesheet } from './css/style.module.css';
 import { isPastePage, onPastePage } from './pages/paste';
+import { isOwnProfile, onOwnProfile } from './pages/ownProfile';
 import { createPanel } from './helpers/panel';
 import {
   setUseAlternativeTheme,
@@ -22,6 +23,9 @@ console.table({
 if (isPastePage(location.href)) {
   console.log('Loading paste page.');
   onPastePage(moreButtons, alternativeTheme);
+} else if (isOwnProfile()) {
+  console.log('Loading own profile');
+  onOwnProfile();
 }
 
 document.querySelector('nav > h1').replaceWith(

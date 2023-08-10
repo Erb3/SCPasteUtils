@@ -1,4 +1,5 @@
 function toast(text, error = false) {
+  console.log('Making toast!');
   document.querySelector('#message').innerHTML = `<div class="message ${
     error ? 'error' : 'success'
   }">${text}</div>`;
@@ -14,4 +15,4 @@ async function copyToClipboard(text) {
     });
 }
 
-export default { toast, copyToClipboard };
+export { toast, copyToClipboard };
