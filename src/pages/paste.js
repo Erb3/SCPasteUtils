@@ -37,7 +37,12 @@ function onPastePage(moreButtons, alternativeTheme) {
     });
 
     document.querySelector('#copyCC').addEventListener('click', () => {
-      utils.copyToClipboard(`pastebin get ${pasteID} ${pasteName}`);
+      utils.copyToClipboard(
+        `wget https://p.sc3.io/api/v1/pastes/${pasteID}/raw ${pasteName.replaceAll(
+          ' ',
+          '_'
+        )}`
+      );
     });
   }
 
